@@ -1,0 +1,29 @@
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button{
+  padding: 10px 8px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  background-color: cornflowerblue;
+}
+
+button:active{
+  background-color: #88acec;
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+input{
+  padding: 10px 8px;
+  border-radius: 8px;
+}
