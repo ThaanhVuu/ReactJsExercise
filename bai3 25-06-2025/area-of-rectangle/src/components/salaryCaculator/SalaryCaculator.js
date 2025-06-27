@@ -74,7 +74,7 @@ function SalaryCaculator() {
         } else {
             setOvertimeHour(validateForm());
         }
-    }, [totalHour]);
+    }, [baseSalary, totalHour]);
 
     //tinh tong luong
     useEffect(() => {
@@ -87,7 +87,7 @@ function SalaryCaculator() {
         } else {
             setTotalSalary(validateForm());
         }
-    }, [totalHour, overtimeHour]);
+    }, [baseSalary ,totalHour, overtimeHour]);
 
     return (
         <div className={"SalaryCaculator"}>
