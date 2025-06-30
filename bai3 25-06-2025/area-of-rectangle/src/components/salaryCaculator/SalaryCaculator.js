@@ -61,7 +61,7 @@ function SalaryCaculator() {
         } else {
             setTotalHour(validateForm());
         }
-    }, [monday, tuesday, wednesday, thursday, friday, saturday, sunday]);
+    }, [baseSalary, monday, tuesday, wednesday, thursday, friday, saturday, sunday]);
 
     //tinh gio lam them theo realtime
     useEffect(() => {

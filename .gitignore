@@ -6,3 +6,4 @@
 *.log
 *.idea
 /vidu
+**/node_modules
