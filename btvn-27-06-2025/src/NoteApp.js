@@ -4,20 +4,29 @@ import './AppNote.css';
 function NoteApp() {
     const [notes, setNotes] = useState([]);
     const [input, setInput] = useState('');
+    const [notesFiltered, setNotesFiltered] = useState([]);
 
     const handleAddNewBtn = () => {
         if (input.trim() === "") return;
-        //...notes -> giải mảng ra thành các phần tử, rồi thêm phần tử input vào mảng, rồi set thành mảng mới (setNotes)
-        // nếu trực tiếp thao tác với mảng, react sẽ k render, chỉ khi dùng set... mới render
-        setNotes([...notes, input]);
+        const newNote = { id: Date.now(), text: input.trim() };
+        let newList = [...notes, newNote];
+        setNotes(newList);
+        setNotesFiltered(newList);
         setInput("");
     }
 
-    //index sẽ được gán cho btn trong html
-    const handleDeleteBtn = (index) => {
-        //tạo 1 mảng mới với các phần tử của mảng cũ được lọc qua filter, rồi thay thế mảng cũ bằng mảng mới để react render
-        const newNotes = notes.filter((element, i) => i !== index);
-        setNotes(newNotes);
+    const handleDeleteBtn = (note) => {
+        const newNotes = notes.filter((element) => element.id !== note.id);
+        setNotesFiltered(newNotes);
+    }
+
+    const handlerSearchBtn = (searchInput) => {
+        if (input.trim() === "") {
+            setNotesFiltered(notes);
+        } else {
+            let newList = notes.filter((element) => element.text === searchInput);
+            setNotesFiltered(newList);
+        }
     }
 
     return (
@@ -30,13 +39,14 @@ function NoteApp() {
                     onChange={(e) => setInput(e.target.value)}
                 />
                 <button onClick={handleAddNewBtn}>Add</button>
+                <button onClick={() => handlerSearchBtn(input)}>Search</button>
             </div>
             <div className={"listNote"}>
                 {
-                    notes.map((note, index) => (
-                        <div key={index}>
-                            <span>{note}</span>
-                            <button onClick={() => handleDeleteBtn(index)}>Delete</button>
+                    notesFiltered.map((note) => (
+                        <div key={note.id}>
+                            <span>{note.text}</span>
+                            <button onClick={() => handleDeleteBtn(note)}>Delete</button>
                         </div>
                     ))
                 }
