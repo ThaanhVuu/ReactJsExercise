@@ -1,0 +1,12 @@
+.AddNumber{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.AddNumber > div{
+    display: flex;
+    flex-direction: column;
+}
+
+
