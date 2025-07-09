@@ -1,0 +1,43 @@
+.Login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    border: 2px solid #2e6ddf;
+    border-radius: 12px;
+    gap: 10px;
+}
+
+.loginForm > div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.loginForm input{
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px solid #2e6ddf;
+}
+
+.loginForm button{
+    padding: 10px 20px;
+    border-radius: 12px;
+    background-color: #61dafb;
+    border: none;
+    margin-top: 20px;
+}
+
+.loginForm button:hover{
+    background-color: #2e6ddf;
+    cursor: pointer;
+}
+
